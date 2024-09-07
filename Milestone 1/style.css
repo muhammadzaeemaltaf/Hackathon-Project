@@ -1,0 +1,258 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.left {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(185, 185, 185, 0.5);
+    padding: 2rem;
+}
+
+.left .img {
+    width: 70%;
+    overflow: hidden;
+}
+
+.left .img div {
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.left .line {
+    height: 1px;
+    width: 70%;
+    background: #00000067;
+}
+
+.left-col-inner {
+    width: 100%;
+    padding: 2rem 0 1rem 6rem;
+}
+
+.left-col-inner h2 {
+    margin-bottom: 1rem;
+}
+
+.left-col-inner .detail {
+    padding: 10px 0;
+}
+
+.left-col-inner ul {
+    padding-left: 2rem;
+}
+
+.left-col-inner ul li {
+    padding: 2px 0;
+}
+
+ul {
+    list-style-type: circle !important;
+}
+
+#skills {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#skills.show {
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+#btn {
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.left-col-inner .detail p {
+    padding-left: .5rem;
+    padding-top: 0.4rem;
+}
+
+.right {
+    width: 65%;
+    text-align: start;
+    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.right #name {
+    font-size: 48px;
+    font-weight: 500;
+    color: grey;
+}
+
+.right .title {
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: -.6rem;
+}
+
+.right h2 {
+    padding-bottom: .8rem;
+}
+
+.right .summary .paragraph {
+    font-size: 16px;
+}
+
+.right .div {
+    margin: 10px 0;
+}
+
+.year {
+    width: 20%;
+    font-weight: 700;
+}
+
+.institude-name {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+.institude-name p:first-child {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.right .lineTop{
+    height: 1.5px !important;
+    width: 100% !important;
+}
+
+.right .line {
+    height: 1px;
+    width: 70%;
+    background-color: #00000067;
+    margin:  0 auto;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .right #name {
+        font-size: 36px;
+    }
+
+    .right .title {
+        font-size: 24px;
+    }
+
+    .right .summary .paragraph {
+        font-size: 14px;
+    }
+
+    .left .img div {
+        height: 15rem;
+        width: 15rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .left-col-inner {
+        padding: 2rem 0 1rem 3rem;
+    }
+}
+
+/* A4 Layout for Print */
+@media print {
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+
+    body {
+        width: 210mm;
+        height: 297mm;
+    }
+
+    .flex {
+        flex-direction: row;
+    }
+
+    .left {
+        width: 35%;
+        height: 297mm;
+        padding: 2rem 0;
+        background-color: rgba(185, 185, 185, 0.5);
+    }
+
+    .left-col-inner {
+        padding-left: 2rem;
+    }
+
+    #skills {
+        height: auto !important;
+        opacity: 1;
+    }
+
+    #btn {
+        display: none;
+    }
+
+    .right {
+        width: 65%;
+        margin-top: -12rem;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .right #name {
+        font-size: 40px;
+    }
+
+    .right .title {
+        font-size: 28px;
+        margin-top: 0;
+    }
+
+    .right .summary .paragraph {
+        font-size: 14px;
+    }
+}
