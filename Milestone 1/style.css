@@ -187,11 +187,6 @@ ul {
     .right .summary .paragraph {
         font-size: 14px;
     }
-
-    .left .img div {
-        height: 15rem;
-        width: 15rem;
-    }
 }
 
 @media (max-width: 992px) {
