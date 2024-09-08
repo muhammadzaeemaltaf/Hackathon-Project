@@ -1,0 +1,478 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    .main {
+        padding: 1rem;
+    }
+
+    .heading{
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .section {
+        margin-bottom: 1rem;
+    }
+
+    .section .cv-title {
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.473);
+        background: #7472726c;
+        padding: .5rem;
+    }
+
+    .section .cv-about {
+        border: 1px solid;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+    .section .cv-about .col-2 {
+        width: 50%;
+        margin-top: 10px;
+    }
+
+
+    .section .cv-about .col-2 .form-element {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .form-element .form-lable {
+        width: 30%;
+        font-weight: 600;
+    }
+
+
+    .form-element .form-control {
+        padding: 3px 6px;
+        outline: none;
+        border: 1px solid;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .col {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+        margin-top: 4px;
+    }
+
+    .repeat-col {
+        border: 1px solid;
+    }
+
+    .repeat-col .col {
+        padding: 20px 12px;
+        display: flex;
+    }
+
+    .repeat-col .col .form-element {
+        width: 33.33%;
+
+    }
+
+    .section button {
+        border: none;
+        background-color: blue;
+        color: white;
+        font-size: 22px;
+        width: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 12px;
+    }
+
+    .close-btn {
+        background-color: red !important;
+    }
+
+
+    .show-resume{
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: rgb(0, 132, 255);
+        color: white;
+        font-size: 22px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .show-resume:hover{
+        background-color: rgba(0, 132, 255, 0.404);
+
+    }
+
+    /* Resume */
+
+    .resume {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid;
+        display: none;
+    }
+
+    .flex {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+
+    .left {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(185, 185, 185, 0.5);
+        padding: 2rem;
+    }
+
+    .left .img {
+        width: 70%;
+        overflow: hidden;
+    }
+
+    .left .img div {
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+
+    .left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .left .line {
+        height: 1px;
+        width: 70%;
+        background: #00000067;
+    }
+
+    .left-col-inner {
+        width: 100%;
+        padding: 2rem 0 1rem 0;
+    }
+
+    .left-col-inner h2 {
+        margin-bottom: 1rem;
+    }
+
+    .left-col-inner .detail {
+        padding: 10px 0;
+    }
+
+    .left-col-inner ul {
+        padding-left: 2rem;
+    }
+
+    .left-col-inner ul li {
+        padding: 2px 0;
+    }
+
+    ul {
+        list-style-type: circle !important;
+    }
+
+    #skills {
+        height: auto;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+
+    .left-col-inner .detail p {
+        padding-left: .5rem;
+        padding-top: 0.4rem;
+    }
+
+    .right {
+        width: 65%;
+        text-align: start;
+        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+        padding: 10rem 2rem 2rem 2rem;
+        height: auto;
+        justify-content: center;
+    }
+
+    .right #name {
+        font-size: 48px;
+        font-weight: 500;
+        color: grey;
+    }
+
+    .right .title {
+        font-size: 32px;
+        font-weight: 400;
+        margin-top: -.6rem;
+    }
+
+    .right h2 {
+        padding-bottom: .8rem;
+    }
+
+    .right .summary .paragraph {
+        font-size: 16px;
+        text-wrap: wrap;
+    }
+
+    .right .div {
+        margin: 10px 0;
+        height: max-content;
+    }
+
+    .year {
+        width: 30%;
+        font-weight: 700;
+    }
+
+    .institude-name {
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        width: 70%;
+    }
+
+    .institude-name p:first-child {
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .right .lineTop {
+        height: 1.5px !important;
+        width: 100% !important;
+    }
+
+    .right .line {
+        height: 1px;
+        width: 70%;
+        background-color: #00000067;
+        margin: 0 auto;
+    }
+
+    #resume-name {
+        font-size: 48px;
+        font-weight: 500;
+        color: gray;
+    }
+
+    #resume-education {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #resume-experience {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .btns {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .btns button{
+        width: 50%;
+        padding: 10px;
+        border: none;
+        background-color: rgb(0, 255, 13);
+        color: white;
+        font-size: 22px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btns button:last-child{
+        background-color: rgb(0, 162, 255);
+
+    }
+
+    @media (max-width: 768px) {
+        .resume {
+            width: 100%;
+            height: auto;
+            padding: 1rem;
+            flex-direction: column;
+        }
+
+        .left,
+        .right {
+            width: 100%;
+            padding: 1rem;
+            margin: 0;
+        }
+
+        .left {
+            background-color: transparent;
+        }
+
+        .right {
+            gap: 1rem;
+        }
+
+        .right #name {
+            font-size: 36px;
+        }
+
+        .right .title {
+            font-size: 28px;
+        }
+
+        .right .summary .paragraph {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .left-col-inner {
+            padding: 1rem;
+        }
+
+        .right {
+            padding: 1rem;
+        }
+
+        .form-control{
+            width: 100%;
+        }
+    }
+
+    /* A4 Layout for Print */
+    @media print {
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        .main{
+            padding: 0;
+        }
+
+        .resume{
+            border: 0;
+        }
+
+        .flex {
+            flex-direction: row;
+        }
+
+        .left {
+            width: 35%;
+            height: 100%;
+            padding: 2rem 0;
+            background-color: rgba(185, 185, 185, 0.5);
+        }
+
+        .left-col-inner {
+            padding-left: 2rem;
+        }
+
+        .right {
+            width: 65%;
+            margin-top: 0;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .right #name {
+            font-size: 40px;
+        }
+
+        .right .title {
+            font-size: 28px;
+        }
+
+        .right .summary .paragraph {
+            font-size: 14px;
+        }
+    }
+
+    /* A4 Layout for Print */
+    @media print {
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        .container{
+            display: none;
+        }
+
+        .flex {
+            flex-direction: row;
+        }
+
+        .left {
+            width: 35%;
+            height: 297mm;
+            padding: 2rem 0;
+            background-color: rgba(185, 185, 185, 0.5);
+        }
+
+        .left-col-inner {
+            padding-left: 2rem;
+        }
+
+        .resume{
+            padding: 0;
+        }
+
+        .right {
+            width: 65%;
+            margin-top: 8rem;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .right #name {
+            font-size: 40px;
+        }
+
+        .right .title {
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        .right .summary .paragraph {
+            font-size: 14px;
+        }
+        
+        .btns{
+            display: none;
+        }
+    }
