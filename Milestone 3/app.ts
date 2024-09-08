@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       experienceElements: experienceDOM,
     };
 
-    localStorage.setItem("resumeData", JSON.stringify(resume)); 
+    localStorage.setItem("resumeData", JSON.stringify(resume));
 
     generateResume(resume);
   }
@@ -240,19 +240,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (resumeEducation) resumeEducation.innerHTML = obj.educationElements;
     if (resumeExperience) resumeExperience.innerHTML = obj.experienceElements;
   }
-
-  function showResume() {
+  document.getElementById("show-resume")?.addEventListener("click", () => {
     let container = document.querySelector(".container") as HTMLElement;
     let resume = document.querySelector(".resume") as HTMLElement;
     if (container) container.style.display = "none";
     if (resume) resume.style.display = "block";
-  }
-
-  function editResume() {
+  });
+  
+  document.getElementById("edit-resume")?.addEventListener("click", () => {
     let container = document.querySelector(".container") as HTMLElement;
     let resume = document.querySelector(".resume") as HTMLElement;
     if (container) container.style.display = "block";
     if (resume) resume.style.display = "none";
-  }
+  });
 
 });
