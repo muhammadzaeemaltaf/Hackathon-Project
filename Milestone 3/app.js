@@ -43,6 +43,27 @@ document.addEventListener("DOMContentLoaded", function () {
             resumeEntry.remove();
         }
     }
+    var textFields = [
+        "firstName",
+        "lastName",
+        "designation",
+        "phoneno",
+        "email",
+        "Address",
+        "summary",
+        "skills",
+        "lang",
+        "institute",
+        "field",
+        "peroid",
+        "company",
+        "designation",
+        "duration",
+    ];
+    textFields.forEach(function (id) {
+        var _a;
+        (_a = document.getElementById(id)) === null || _a === void 0 ? void 0 : _a.addEventListener("keyup", text);
+    });
     function text() {
         var firstName = document.getElementById("firstName");
         var firstNameText = firstName.value;
@@ -79,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
             educationElements: educationDOM,
             experienceElements: experienceDOM,
         };
-        localStorage.setItem("resumeData", JSON.stringify(resume));
         generateResume(resume);
     }
     function showList(val) {
@@ -91,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var educationSections = document.querySelectorAll("#repeat-col-education .col");
         var educationList = "";
         educationSections.forEach(function (section, index) {
-            var institute = section.querySelector('input[name="institute"]');
-            var field = section.querySelector('input[name="field"]');
-            var duration = section.querySelector('input[name="duration"]');
+            var institute = section.querySelector('input[id="institute"]');
+            var field = section.querySelector('input[id="field"]');
+            var duration = section.querySelector('input[id="peroid"]');
             var educationEntry = "\n                <div class=\"flex div\" id=\"education-".concat(index, "\">\n                    <div class=\"year\">\n                        <p>").concat(duration.value, "</p>\n                    </div>\n                    <div class=\"institude-name\">\n                        <p>").concat(field.value, "</p>\n                        <p>").concat(institute.value, "</p>\n                    </div>\n                </div>\n            ");
             educationList += educationEntry;
         });
@@ -103,10 +123,11 @@ document.addEventListener("DOMContentLoaded", function () {
         var experienceSections = document.querySelectorAll("#repeat-col-work .col");
         var experienceList = "";
         experienceSections.forEach(function (section, index) {
-            var company = section.querySelector('input[name="company"]');
-            var designation = section.querySelector('input[name="designation"]');
-            var duration = section.querySelector('input[name="duration"]');
+            var company = section.querySelector('input[id="company"]');
+            var designation = section.querySelector('input[id="designation"]');
+            var duration = section.querySelector('input[id="duration"]');
             var experienceEntry = "\n                <div class=\"flex div\" id=\"work-".concat(index, "\">\n                    <div class=\"year\">\n                        <p>").concat(duration.value, "</p>\n                    </div>\n                    <div class=\"institude-name\">\n                        <p>").concat(designation.value, " at ").concat(company.value, "</p>\n                    </div>\n                </div>\n            ");
+            console.log(experienceEntry);
             experienceList += experienceEntry;
         });
         return experienceList;
@@ -122,26 +143,16 @@ document.addEventListener("DOMContentLoaded", function () {
         var resumeLang = document.getElementById("resume-lang");
         var resumeEducation = document.getElementById("resume-education");
         var resumeExperience = document.getElementById("resume-experience");
-        if (resumePhoneno)
-            resumePhoneno.textContent = obj.phoneno;
-        if (resumeEmail)
-            resumeEmail.textContent = obj.email;
-        if (resumeAddress)
-            resumeAddress.textContent = obj.address;
-        if (resumeName)
-            resumeName.textContent = "".concat(obj.firstname, " ").concat(obj.lastname);
-        if (resumeTitle)
-            resumeTitle.textContent = obj.designation;
-        if (resumeSummary)
-            resumeSummary.textContent = obj.summary;
-        if (resumeSkills)
-            resumeSkills.innerHTML = obj.skillsElements;
-        if (resumeLang)
-            resumeLang.innerHTML = obj.langElements;
-        if (resumeEducation)
-            resumeEducation.innerHTML = obj.educationElements;
-        if (resumeExperience)
-            resumeExperience.innerHTML = obj.experienceElements;
+        resumePhoneno.textContent = obj.phoneno;
+        resumeEmail.textContent = obj.email;
+        resumeAddress.textContent = obj.address;
+        resumeName.textContent = "".concat(obj.firstname, " ").concat(obj.lastname);
+        resumeTitle.textContent = obj.designation;
+        resumeSummary.textContent = obj.summary;
+        resumeSkills.innerHTML = obj.skillsElements;
+        resumeLang.innerHTML = obj.langElements;
+        resumeEducation.innerHTML = obj.educationElements;
+        resumeExperience.innerHTML = obj.experienceElements;
     }
     (_a = document.getElementById("show-resume")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
         var container = document.querySelector(".container");

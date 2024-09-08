@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Resume Bulder</title>
+    <title>Dynamic Resume Builder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,7 +15,6 @@
         <div class="container">
 
             <h1 class="heading">Dynamic Resume Builder</h1>
-
             <div class="section">
                 <div class="cv-title">
                     <h3>About Section</h3>
@@ -24,51 +23,37 @@
                 <div class="cv-about">
                     <div class="col-2">
                         <div class="form-element">
-                            <label for="" class="form-lable">First Name</label>
-                            <input type="text" name="firstName" id="firstName" class="form-control" onkeyup="text()"
-                                placeholder="eg: John">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="eg: John">
                         </div>
                         <div class="form-element">
-                            <label for="" class="form-lable">Last Name</label>
-                            <input type="text" name="lastName" id="lastName" class="form-control" onkeyup="text()"
-                                placeholder="eg: Doe">
-                        </div>
-                    </div>
-
-
-                    <div class="col-2">
-
-                        <div class="form-element">
-                            <label for="" class="form-lable">Designation</label>
-                            <input type="text" name="designation" id="designation" class="form-control" onkeyup="text()"
-                                placeholder="eg: Sr.Developer">
-                        </div>
-
-                        <div class="form-element">
-                            <label for="" class="form-lable">Address</label>
-                            <input type="text" name="Address" id="Address" class="form-control" onkeyup="text()"
-                                placeholder="eg: 123, xyz road.">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="eg: Doe">
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="form-element">
-                            <label for="" class="form-lable">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" onkeyup="text()"
-                                placeholder="eg: johndoe@gamil.com">
+                            <label for="designation" class="form-label">Designation</label>
+                            <input type="text" id="designation" class="form-control" placeholder="eg: Sr.Developer">
                         </div>
+
                         <div class="form-element">
-                            <label for="" class="form-lable">Phone no.</label>
-                            <input type="text" name="phoneno" id="phoneno" class="form-control" onkeyup="text()"
-                                placeholder="eg: +92 334 XXXXXXX">
+                            <label for="Address" class="form-label">Address</label>
+                            <input type="text" id="Address" class="form-control" placeholder="eg: 123, xyz road.">
                         </div>
                     </div>
 
-                    <!-- <div class="col-2">
-                        <div class="form-element"></div>
-                        <label for="" class="form-lable">Image</label>
-                        <input type="file" name="image" id="" class="form-control image" onkeyup="" accept="*">
-                    </div> -->
+                    <div class="col-2">
+                        <div class="form-element">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="eg: johndoe@gmail.com">
+                        </div>
+                        <div class="form-element">
+                            <label for="phoneno" class="form-label">Phone no.</label>
+                            <input type="text" id="phoneno" class="form-control" placeholder="eg: +92 334 XXXXXXX">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -80,9 +65,9 @@
                 <div class="cv-about">
                     <div class="col">
                         <div class="form-element">
-                            <label for="" class="form-lable">Summary</label>
+                            <label for="summary" class="form-label">Summary</label>
                             <br>
-                            <textarea name="" id="summary" rows="6" class="form-control" onkeyup="text()"></textarea>
+                            <textarea id="summary" rows="6" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
@@ -96,21 +81,18 @@
                 <div id="repeat-col-education" class="repeat-col">
                     <div class="col">
                         <div class="form-element">
-                            <label class="form-lable">Institute</label>
-                            <input type="text" name="institute" class="form-control" placeholder="eg: High School"
-                                onkeyup="text()" />
+                            <label for="institute" class="form-label">Institute</label>
+                            <input type="text" id="institute" class="form-control" placeholder="eg: High School">
                         </div>
 
                         <div class="form-element">
-                            <label class="form-lable">Field</label>
-                            <input type="text" name="field" class="form-control" placeholder="eg: Bachelor of Science"
-                                onkeyup="text()" />
+                            <label for="field" class="form-label">Field</label>
+                            <input type="text" id="field" class="form-control" placeholder="eg: Bachelor of Science">
                         </div>
 
                         <div class="form-element">
-                            <label class="form-lable">Duration</label>
-                            <input type="text" name="duration" class="form-control" placeholder="eg: 2001 - 2005"
-                                onkeyup="text()" />
+                            <label for="peroid" class="form-label">Duration</label>
+                            <input type="text" id="peroid" class="form-control" placeholder="eg: 2001 - 2005">
                         </div>
                     </div>
                 </div>
@@ -125,21 +107,18 @@
                 <div id="repeat-col-work" class="repeat-col">
                     <div class="col">
                         <div class="form-element">
-                            <label class="form-lable">Company</label>
-                            <input type="text" name="company" class="form-control" placeholder="eg: Microsoft"
-                                onkeyup="text()" />
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" id="company" class="form-control" placeholder="eg: Microsoft">
                         </div>
 
                         <div class="form-element">
-                            <label class="form-lable">Designation</label>
-                            <input type="text" name="designation" class="form-control" placeholder="eg: Sr. Developer"
-                                onkeyup="text()" />
+                            <label for="designations" class="form-label">Designation</label>
+                            <input type="text" id="designation" class="form-control" placeholder="eg: Sr. Developer">
                         </div>
 
                         <div class="form-element">
-                            <label class="form-lable">Duration</label>
-                            <input type="text" name="duration" class="form-control" placeholder="eg: 2001 - 2005"
-                                onkeyup="text()" />
+                            <label for="durations" class="form-label">Duration</label>
+                            <input type="text" id="duration" class="form-control" placeholder="eg: 2001 - 2005">
                         </div>
                     </div>
 
@@ -155,9 +134,9 @@
                 <div class="cv-about">
                     <div class="col">
                         <div class="form-element">
-                            <label for="" class="form-lable">Skills (comma "," seperator for more)</label>
+                            <label for="skills" class="form-label">Skills (comma "," separated for more)</label>
                             <br>
-                            <textarea name="" id="skills" rows="2" class="form-control" onkeyup="text()"></textarea>
+                            <textarea id="skills" rows="2" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
@@ -171,9 +150,9 @@
                 <div class="cv-about">
                     <div class="col">
                         <div class="form-element">
-                            <label for="" class="form-lable">Language (comma "," seperator for more)</label>
+                            <label for="lang" class="form-label">Languages (comma "," separated for more)</label>
                             <br>
-                            <textarea name="" id="lang" rows="2" class="form-control" onkeyup="text()"></textarea>
+                            <textarea id="lang" rows="2" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
@@ -182,13 +161,11 @@
             <button class="show-resume" id="show-resume">Generate Resume</button>
         </div>
 
-
-        <!-- Resume -->
+        <!-- Resume Preview -->
         <div class="resume">
             <div class="flex">
-                <!-- Left -->
                 <div class="col left">
-                    <!-- Profle Image -->
+                    <!-- Profile Image -->
                     <div class="img">
                         <div>
                             <img src="./img_avatar.png" alt="profile-image">
@@ -205,29 +182,28 @@
                         <div class="detail">
                             <h3>Email</h3>
                             <p id="resume-email" style="width: 80%; text-overflow: ellipsis; overflow: hidden;">
-                                johndoe@gamil.com</p>
+                                johndoe@gmail.com
+                            </p>
                         </div>
                         <div class="detail">
                             <h3>Address</h3>
-                            <p id="resume-address" style="width: 80%; text-wrap: wrap;">123 Street, XYZ read.</p>
+                            <p id="resume-address" style="width: 80%; text-wrap: wrap;">123 Street, XYZ road.</p>
                         </div>
                     </div>
 
                     <div class="line"></div>
 
-                    <!-- Skills Detail -->
+                    <!-- Skills -->
                     <div class="left-col-inner skills">
                         <h2>SKILLS</h2>
                         <ul id="resume-skills">
                             <li>HTML</li>
                         </ul>
-
                     </div>
 
                     <div class="line"></div>
 
-
-                    <!-- languages Detail -->
+                    <!-- Languages -->
                     <div class="left-col-inner lang">
                         <h2>LANGUAGES</h2>
                         <ul id="resume-lang">
@@ -236,7 +212,6 @@
                     </div>
                 </div>
 
-                <!-- Right -->
                 <div class="col right">
                     <!-- Name and Title -->
                     <div>
@@ -250,17 +225,13 @@
                     <div class="summary">
                         <h2>SUMMARY</h2>
                         <div class="paragraph" id="resume-summary">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio rerum, voluptatibus
-                            neque,
-                            excepturi eligendi quaerat tempora accusamus illo, natus necessitatibus quos beatae quisquam
-                            repellendus velit expedita voluptatem? Obcaecati, ex repellendus. Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         </div>
                     </div>
 
                     <div class="line"></div>
 
-                    <!-- Education Detail -->
+                    <!-- Education -->
                     <div class="education">
                         <h2>EDUCATION</h2>
                         <div id="resume-education">
@@ -268,35 +239,31 @@
                                 <div class="year">
                                     <p>2021 - Ongoing</p>
                                 </div>
-                                <div class="institude-name">
+                                <div class="institute-name">
                                     <p>Bachelor of Computer Science</p>
                                     <p>ABC University</p>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
 
                     <div class="line"></div>
 
-                    <!-- Work Experience Detail -->
-                    <div class="work">
-                        <h2>Work Experience </h2>
+                    <!-- Work Experience -->
+                    <div class="work-experience">
+                        <h2>WORK EXPERIENCE</h2>
                         <div id="resume-experience">
                             <div class="flex div">
                                 <div class="year">
-                                    <p>2022 - Ongoing</p>
+                                    <p>2018 - 2020</p>
                                 </div>
-                                <div class="institude-name">
-                                    <p>Intern at ABC</p>
+                                <div class="work-institute">
+                                    <p>Software Engineer</p>
+                                    <p>XYZ Corp</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="line"></div>
-
                 </div>
             </div>
 
@@ -310,24 +277,23 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const downloadBtn = document.getElementById("download-btn");
+        const downloadBtn = document.getElementById("download-btn");
 
-            downloadBtn.addEventListener("click", () => {
-                const resumeElement = document.querySelector(".resume");
+        downloadBtn.addEventListener("click", downloadResume);
 
-                const opt = {
-                    filename: 'resume.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2 },
-                    jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
-                };
+        function downloadResume() {
+            const resumeElement = document.querySelector(".resume .flex");
 
-                // Convert the resume to PDF and prompt download
-                html2pdf().from(resumeElement).set(opt).save();
-            });
-        });
+            const opt = {
+                filename: 'resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
+            };
 
+            // Using html2pdf to download the resume section as PDF
+            html2pdf().from(resumeElement).set(opt).save();
+        }
     </script>
 
     <script src="app.js"></script>

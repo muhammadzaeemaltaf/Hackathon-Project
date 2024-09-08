@@ -83,6 +83,27 @@ document.addEventListener("DOMContentLoaded", () => {
     experienceElements: string;
   }
 
+  const textFields = [
+    "firstName",
+    "lastName",
+    "designation",
+    "phoneno",
+    "email",
+    "Address",
+    "summary",
+    "skills",
+    "lang",
+    "institute",
+    "field",
+    "peroid",
+    "company",
+    "designation",
+    "duration",
+  ];
+  textFields.forEach((id) => {
+    document.getElementById(id)?.addEventListener("keyup", text);
+  });
+
   function text(): void {
     const firstName = document.getElementById("firstName") as HTMLInputElement;
     const firstNameText = firstName.value;
@@ -98,12 +119,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailText = email.value;
     const phoneno = document.getElementById("phoneno") as HTMLInputElement;
     const phonenoText = phoneno.value;
-    const summary = document.getElementById("summary") as HTMLInputElement;
+    const summary = document.getElementById("summary") as HTMLTextAreaElement;
     const summaryText = summary.value;
-    const skills = document.getElementById("skills") as HTMLInputElement;
+    const skills = document.getElementById("skills") as HTMLTextAreaElement;
     const skillsText = skills.value;
     const skillDOM = showList(skillsText);
-    const lang = document.getElementById("lang") as HTMLInputElement;
+    const lang = document.getElementById("lang") as HTMLTextAreaElement;
     const langText = lang.value;
     const langDOM = showList(langText);
     const educationDOM = showEducation();
@@ -122,8 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
       educationElements: educationDOM,
       experienceElements: experienceDOM,
     };
-
-    localStorage.setItem("resumeData", JSON.stringify(resume));
 
     generateResume(resume);
   }
@@ -144,13 +163,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     educationSections.forEach((section, index) => {
       const institute = section.querySelector(
-        'input[name="institute"]'
+        'input[id="institute"]'
       ) as HTMLInputElement;
       const field = section.querySelector(
-        'input[name="field"]'
+        'input[id="field"]'
       ) as HTMLInputElement;
       const duration = section.querySelector(
-        'input[name="duration"]'
+        'input[id="peroid"]'
       ) as HTMLInputElement;
 
       const educationEntry = `
@@ -179,13 +198,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     experienceSections.forEach((section, index) => {
       const company = section.querySelector(
-        'input[name="company"]'
+        'input[id="company"]'
       ) as HTMLInputElement;
       const designation = section.querySelector(
-        'input[name="designation"]'
+        'input[id="designation"]'
       ) as HTMLInputElement;
       const duration = section.querySelector(
-        'input[name="duration"]'
+        'input[id="duration"]'
       ) as HTMLInputElement;
 
       const experienceEntry = `
@@ -199,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
 
+      console.log(experienceEntry);
       experienceList += experienceEntry;
     });
 
@@ -229,24 +249,25 @@ document.addEventListener("DOMContentLoaded", () => {
       "resume-experience"
     ) as HTMLElement;
 
-    if (resumePhoneno) resumePhoneno.textContent = obj.phoneno;
-    if (resumeEmail) resumeEmail.textContent = obj.email;
-    if (resumeAddress) resumeAddress.textContent = obj.address;
-    if (resumeName) resumeName.textContent = `${obj.firstname} ${obj.lastname}`;
-    if (resumeTitle) resumeTitle.textContent = obj.designation;
-    if (resumeSummary) resumeSummary.textContent = obj.summary;
-    if (resumeSkills) resumeSkills.innerHTML = obj.skillsElements;
-    if (resumeLang) resumeLang.innerHTML = obj.langElements;
-    if (resumeEducation) resumeEducation.innerHTML = obj.educationElements;
-    if (resumeExperience) resumeExperience.innerHTML = obj.experienceElements;
+    resumePhoneno.textContent = obj.phoneno;
+    resumeEmail.textContent = obj.email;
+    resumeAddress.textContent = obj.address;
+    resumeName.textContent = `${obj.firstname} ${obj.lastname}`;
+    resumeTitle.textContent = obj.designation;
+    resumeSummary.textContent = obj.summary;
+    resumeSkills.innerHTML = obj.skillsElements;
+    resumeLang.innerHTML = obj.langElements;
+    resumeEducation.innerHTML = obj.educationElements;
+    resumeExperience.innerHTML = obj.experienceElements;
   }
+
   document.getElementById("show-resume")?.addEventListener("click", () => {
     let container = document.querySelector(".container") as HTMLElement;
     let resume = document.querySelector(".resume") as HTMLElement;
     if (container) container.style.display = "none";
     if (resume) resume.style.display = "block";
   });
-  
+
   document.getElementById("edit-resume")?.addEventListener("click", () => {
     let container = document.querySelector(".container") as HTMLElement;
     let resume = document.querySelector(".resume") as HTMLElement;
@@ -254,4 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (resume) resume.style.display = "none";
   });
 
+
+  
 });

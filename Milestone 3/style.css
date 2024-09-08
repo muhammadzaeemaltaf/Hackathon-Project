@@ -313,6 +313,9 @@
     }
 
     @media (max-width: 768px) {
+        .main{
+            padding: 0;
+        }
         .resume {
             width: 100%;
             height: auto;
@@ -322,36 +325,43 @@
 
         .left,
         .right {
-            width: 100%;
+            /* width: 100%; */
             padding: 1rem;
             margin: 0;
         }
 
-        .left {
-            background-color: transparent;
-        }
+    
 
         .right {
             gap: 1rem;
         }
 
-        .right #name {
+        .right #resume-name {
             font-size: 36px;
         }
 
         .right .title {
-            font-size: 28px;
+            font-size: 24px;
+        }
+
+        .left h2{
+            font-size: 16px;
         }
 
         .right .summary .paragraph {
             font-size: 14px;
         }
+
+        .year{
+            width: 40%;
+        }
+
+        .institude-name{
+            width: 60%;
+        }
     }
 
     @media (max-width: 992px) {
-        .left-col-inner {
-            padding: 1rem;
-        }
 
         .right {
             padding: 1rem;
@@ -389,7 +399,7 @@
         .left {
             width: 35%;
             height: 100%;
-            padding: 2rem 0;
+            padding: 2rem 0 10rem;
             background-color: rgba(185, 185, 185, 0.5);
         }
 
@@ -399,7 +409,7 @@
 
         .right {
             width: 65%;
-            margin-top: 0;
+            padding-bottom: 10rem;
             gap: 2rem;
             justify-content: center;
         }
