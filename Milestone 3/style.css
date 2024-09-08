@@ -322,8 +322,7 @@
 
         .left,
         .right {
-            width: 100%;
-            padding: 1rem;
+            padding: 0;
             margin: 0;
         }
 
@@ -331,20 +330,32 @@
             background-color: transparent;
         }
 
+        .left h2{
+            font-size: 18px;
+        }
+
         .right {
             gap: 1rem;
         }
 
-        .right #name {
+        .right #resume-name {
             font-size: 36px;
         }
 
         .right .title {
-            font-size: 28px;
+            font-size: 24px;
         }
 
         .right .summary .paragraph {
             font-size: 14px;
+        }
+
+        .year{
+            width: 40%;
+        }
+
+        .institude-name{
+            width: 60%;
         }
     }
 
