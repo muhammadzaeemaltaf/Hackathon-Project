@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "resume-name"
   ) as HTMLElement;
 
-  if (nameElement) {
+  function nameColor() {
     const text: string = nameElement.textContent || "";
     const words: string[] = text.split(" ");
     const first: string = words[0];
@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nameElement.innerHTML = `${changeColor} ${rest}`;
   }
+
+  nameColor();
 
   let educationIndex = 1;
   let workIndex = 1;
@@ -24,8 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
     "add-btn-education"
   ) as HTMLButtonElement;
 
+  function attachEducationInputEvents() {
+    educationCol.querySelectorAll("input").forEach((input) => {
+      input.addEventListener("keyup", (e) => {
+        text();
+      });
+    });
+  }
+
+  attachEducationInputEvents();
+
   addEducationBtn.addEventListener("click", () => {
     duplicateSection(educationCol, "education", educationIndex++);
+    attachEducationInputEvents();
   });
 
   const workCol = document.getElementById("repeat-col-work") as HTMLElement;
@@ -33,8 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
     "add-btn-work"
   ) as HTMLButtonElement;
 
+  function attachWorkInputEvents() {
+    workCol.querySelectorAll("input").forEach((input) => {
+      input.addEventListener("keyup", (e) => {
+        text();
+      });
+    });
+  }
+
+  attachWorkInputEvents();
+
   addWorkBtn.addEventListener("click", () => {
     duplicateSection(workCol, "work", workIndex++);
+    attachWorkInputEvents();
   });
 
   function duplicateSection(
@@ -174,12 +198,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const educationEntry = `
                 <div class="flex div" id="education-${index}">
-                    <div class="year">
-                        <p>${duration.value}</p>
-                    </div>
-                    <div class="institude-name">
-                        <p>${field.value}</p>
-                        <p>${institute.value}</p>
+                    <div>
+                        <h3>${field.value}</h3>
+                        <h4>${institute.value}</h4>
+                        <p>
+                        <i class="fa-regular fa-calendar-days"></i>
+                          ${duration.value}
+                        </p>
                     </div>
                 </div>
             `;
@@ -209,16 +234,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const experienceEntry = `
                 <div class="flex div" id="work-${index}">
-                    <div class="year">
-                        <p>${duration.value}</p>
-                    </div>
-                    <div class="institude-name">
-                        <p>${designation.value} at ${company.value}</p>
+                    <div>
+                        <h3>${designation.value}</h3>
+                        <h4>${company.value}</h4>
+                        <p>
+                        <i class="fa-regular fa-calendar-days"></i>
+                        ${duration.value}
+                        </p>
                     </div>
                 </div>
             `;
 
-      console.log(experienceEntry);
       experienceList += experienceEntry;
     });
 
@@ -259,14 +285,32 @@ document.addEventListener("DOMContentLoaded", () => {
     resumeLang.innerHTML = obj.langElements;
     resumeEducation.innerHTML = obj.educationElements;
     resumeExperience.innerHTML = obj.experienceElements;
+
+    nameColor();
   }
 
   document.getElementById("show-resume")?.addEventListener("click", () => {
     let container = document.querySelector(".container") as HTMLElement;
     let resume = document.querySelector(".resume") as HTMLElement;
-    if (container) container.style.display = "none";
-    if (resume) resume.style.display = "block";
-  });
+    let inputs = document.querySelectorAll("input, textarea");
+
+    let allFieldsFilled = true;
+
+    inputs.forEach((item) => {
+      const inputElement = item as HTMLInputElement | HTMLTextAreaElement;
+      if (inputElement.value.trim() === "") {
+              allFieldsFilled = false;
+        }
+    });
+
+    if (!allFieldsFilled) {
+        alert("All fields are required");
+    } else {
+        if (container) container.style.display = "none";
+        if (resume) resume.style.display = "block";
+    }
+});
+
 
   document.getElementById("edit-resume")?.addEventListener("click", () => {
     let container = document.querySelector(".container") as HTMLElement;
@@ -274,7 +318,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (container) container.style.display = "block";
     if (resume) resume.style.display = "none";
   });
-
-
-  
 });

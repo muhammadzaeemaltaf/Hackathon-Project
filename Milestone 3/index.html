@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Resume Builder</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -82,17 +83,20 @@
                     <div class="col">
                         <div class="form-element">
                             <label for="institute" class="form-label">Institute</label>
-                            <input type="text" id="institute" class="form-control" placeholder="eg: High School">
+                            <input type="text" id="institute" class="form-control instituteClass"
+                                placeholder="eg: High School">
                         </div>
 
                         <div class="form-element">
                             <label for="field" class="form-label">Field</label>
-                            <input type="text" id="field" class="form-control" placeholder="eg: Bachelor of Science">
+                            <input type="text" id="field" class="form-control fieldClass"
+                                placeholder="eg: Bachelor of Science">
                         </div>
 
                         <div class="form-element">
                             <label for="peroid" class="form-label">Duration</label>
-                            <input type="text" id="peroid" class="form-control" placeholder="eg: 2001 - 2005">
+                            <input type="text" id="peroid" class="form-control peroidClass"
+                                placeholder="eg: 2001 - 2005">
                         </div>
                     </div>
                 </div>
@@ -181,13 +185,13 @@
                         </div>
                         <div class="detail">
                             <h3>Email</h3>
-                            <p id="resume-email" style="width: 80%; text-overflow: ellipsis; overflow: hidden;">
+                            <p id="resume-email" style="text-overflow: ellipsis; overflow: hidden;">
                                 johndoe@gmail.com
                             </p>
                         </div>
                         <div class="detail">
                             <h3>Address</h3>
-                            <p id="resume-address" style="width: 80%; text-wrap: wrap;">123 Street, XYZ road.</p>
+                            <p id="resume-address" style="text-wrap: wrap;">123 Street, XYZ road.</p>
                         </div>
                     </div>
 
@@ -236,12 +240,13 @@
                         <h2>EDUCATION</h2>
                         <div id="resume-education">
                             <div class="flex div">
-                                <div class="year">
-                                    <p>2021 - Ongoing</p>
-                                </div>
-                                <div class="institute-name">
-                                    <p>Bachelor of Computer Science</p>
-                                    <p>ABC University</p>
+                                <div>
+                                    <h3>Bachelor of Computer Science</h3>
+                                    <h4>ABC University</h4>
+                                    <p>
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        2021 - Ongoing
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -255,11 +260,13 @@
                         <div id="resume-experience">
                             <div class="flex div">
                                 <div class="year">
-                                    <p>2018 - 2020</p>
-                                </div>
-                                <div class="work-institute">
-                                    <p>Software Engineer</p>
-                                    <p>XYZ Corp</p>
+                                    <h3>Software Engineer</h3>
+                                    <h4>XYZ Corp</h4>
+                                    <p>
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        2018 - 2020
+
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -284,16 +291,29 @@
         function downloadResume() {
             const resumeElement = document.querySelector(".resume .flex");
 
-            const opt = {
-                filename: 'resume.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'A4', orientation: 'portrait' }
-            };
+            // Add a class to mimic the @media print styles
+            document.body.classList.add("pdf-download");
 
-            // Using html2pdf to download the resume section as PDF
-            html2pdf().from(resumeElement).set(opt).save();
+            requestAnimationFrame(() => {
+                // Use setTimeout to ensure that the class change is rendered
+                setTimeout(() => {
+                    const opt = {
+                        filename: 'resume.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2 },
+                        jsPDF: { unit: 'mm', format: 'A4', orientation: 'portrait' }
+                    };
+
+                    // Using html2pdf to download the resume section as PDF
+                    html2pdf().from(resumeElement).set(opt).save().then(() => {
+                        // Remove the class after PDF download
+                        document.body.classList.remove("pdf-download");
+                    });
+                }, 500); // Adjust the timeout duration if needed
+
+            });
         }
+
     </script>
 
     <script src="app.js"></script>

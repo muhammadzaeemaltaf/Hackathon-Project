@@ -1,25 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
     var _a, _b;
     var nameElement = document.getElementById("resume-name");
-    if (nameElement) {
-        var text_1 = nameElement.textContent || "";
-        var words = text_1.split(" ");
+    function nameColor() {
+        var text = nameElement.textContent || "";
+        var words = text.split(" ");
         var first = words[0];
         var rest = words.slice(1).join(" ");
         var changeColor = "<span style=\"color: #242424de;\">".concat(first, "</span>");
         nameElement.innerHTML = "".concat(changeColor, " ").concat(rest);
     }
+    nameColor();
     var educationIndex = 1;
     var workIndex = 1;
     var educationCol = document.getElementById("repeat-col-education");
     var addEducationBtn = document.getElementById("add-btn-education");
+    function attachEducationInputEvents() {
+        educationCol.querySelectorAll("input").forEach(function (input) {
+            input.addEventListener("keyup", function (e) {
+                text();
+            });
+        });
+    }
+    attachEducationInputEvents();
     addEducationBtn.addEventListener("click", function () {
         duplicateSection(educationCol, "education", educationIndex++);
+        attachEducationInputEvents();
     });
     var workCol = document.getElementById("repeat-col-work");
     var addWorkBtn = document.getElementById("add-btn-work");
+    function attachWorkInputEvents() {
+        workCol.querySelectorAll("input").forEach(function (input) {
+            input.addEventListener("keyup", function (e) {
+                text();
+            });
+        });
+    }
+    attachWorkInputEvents();
     addWorkBtn.addEventListener("click", function () {
         duplicateSection(workCol, "work", workIndex++);
+        attachWorkInputEvents();
     });
     function duplicateSection(container, type, index) {
         var newCol = container.firstElementChild.cloneNode(true);
@@ -114,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var institute = section.querySelector('input[id="institute"]');
             var field = section.querySelector('input[id="field"]');
             var duration = section.querySelector('input[id="peroid"]');
-            var educationEntry = "\n                <div class=\"flex div\" id=\"education-".concat(index, "\">\n                    <div class=\"year\">\n                        <p>").concat(duration.value, "</p>\n                    </div>\n                    <div class=\"institude-name\">\n                        <p>").concat(field.value, "</p>\n                        <p>").concat(institute.value, "</p>\n                    </div>\n                </div>\n            ");
+            var educationEntry = "\n                <div class=\"flex div\" id=\"education-".concat(index, "\">\n                    <div>\n                        <h3>").concat(field.value, "</h3>\n                        <h4>").concat(institute.value, "</h4>\n                        <p>\n                        <i class=\"fa-regular fa-calendar-days\"></i>\n                          ").concat(duration.value, "\n                        </p>\n                    </div>\n                </div>\n            ");
             educationList += educationEntry;
         });
         return educationList;
@@ -126,8 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var company = section.querySelector('input[id="company"]');
             var designation = section.querySelector('input[id="designation"]');
             var duration = section.querySelector('input[id="duration"]');
-            var experienceEntry = "\n                <div class=\"flex div\" id=\"work-".concat(index, "\">\n                    <div class=\"year\">\n                        <p>").concat(duration.value, "</p>\n                    </div>\n                    <div class=\"institude-name\">\n                        <p>").concat(designation.value, " at ").concat(company.value, "</p>\n                    </div>\n                </div>\n            ");
-            console.log(experienceEntry);
+            var experienceEntry = "\n                <div class=\"flex div\" id=\"work-".concat(index, "\">\n                    <div>\n                        <h3>").concat(designation.value, "</h3>\n                        <h4>").concat(company.value, "</h4>\n                        <p>\n                        <i class=\"fa-regular fa-calendar-days\"></i>\n                        ").concat(duration.value, "\n                        </p>\n                    </div>\n                </div>\n            ");
             experienceList += experienceEntry;
         });
         return experienceList;
@@ -153,14 +171,28 @@ document.addEventListener("DOMContentLoaded", function () {
         resumeLang.innerHTML = obj.langElements;
         resumeEducation.innerHTML = obj.educationElements;
         resumeExperience.innerHTML = obj.experienceElements;
+        nameColor();
     }
     (_a = document.getElementById("show-resume")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
         var container = document.querySelector(".container");
         var resume = document.querySelector(".resume");
-        if (container)
-            container.style.display = "none";
-        if (resume)
-            resume.style.display = "block";
+        var inputs = document.querySelectorAll("input, textarea");
+        var allFieldsFilled = true;
+        inputs.forEach(function (item) {
+            var inputElement = item;
+            if (inputElement.value.trim() === "") {
+                allFieldsFilled = false;
+            }
+        });
+        if (!allFieldsFilled) {
+            alert("All fields are required");
+        }
+        else {
+            if (container)
+                container.style.display = "none";
+            if (resume)
+                resume.style.display = "block";
+        }
     });
     (_b = document.getElementById("edit-resume")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", function () {
         var container = document.querySelector(".container");

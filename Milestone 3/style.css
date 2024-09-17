@@ -15,7 +15,7 @@
         padding: 1rem;
     }
 
-    .heading{
+    .heading {
         text-align: center;
         padding: 10px 0;
     }
@@ -40,7 +40,7 @@
 
 
     .section .cv-about .col-2 {
-        width: 50%;
+        width: 33.33%;
         margin-top: 10px;
     }
 
@@ -51,8 +51,8 @@
         margin-bottom: 1rem;
     }
 
-    .form-element .form-lable {
-        width: 30%;
+    .form-element .form-label {
+        width: 25%;
         font-weight: 600;
     }
 
@@ -81,10 +81,12 @@
     .repeat-col .col {
         padding: 20px 12px;
         display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 
     .repeat-col .col .form-element {
-        width: 33.33%;
+        width: 32.33%;
 
     }
 
@@ -104,7 +106,7 @@
     }
 
 
-    .show-resume{
+    .show-resume {
         width: 100%;
         padding: 10px;
         border: none;
@@ -115,10 +117,11 @@
         cursor: pointer;
     }
 
-    .show-resume:hover{
+    .show-resume:hover {
         background-color: rgba(0, 132, 255, 0.404);
 
     }
+    
 
     /* Resume */
 
@@ -126,11 +129,11 @@
         width: 210mm;
         height: 297mm;
         margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        border: 1px solid;
         display: none;
+        flex-direction: column;
+        border: 1px solid;
     }
+
 
     .flex {
         display: flex;
@@ -140,16 +143,19 @@
 
     .left {
         width: 35%;
+        height: 297mm;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         background-color: rgba(185, 185, 185, 0.5);
         padding: 2rem;
+        padding-top: 12%;
     }
 
     .left .img {
         width: 70%;
+        border-radius: 50%;
         overflow: hidden;
     }
 
@@ -163,6 +169,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 50%;
     }
 
     .left .line {
@@ -176,6 +183,7 @@
         padding: 2rem 0 1rem 0;
     }
 
+
     .left-col-inner h2 {
         margin-bottom: 1rem;
     }
@@ -184,16 +192,29 @@
         padding: 10px 0;
     }
 
-    .left-col-inner ul {
-        padding-left: 2rem;
+
+    .left-col-inner ul#resume-skills {
+        display: flex;
+        gap: 15px 10px;
+        flex-wrap: wrap;
+        padding: 0 10px;
     }
 
     .left-col-inner ul li {
         padding: 2px 0;
+        font-weight: 600;
+    }
+
+    .left-col-inner ul#resume-skills li {
+        border-bottom: 1px solid black;
+        padding: 0 10px;
+        width: fit-content !important;
+        text-align: center;
+        color: #384347;
     }
 
     ul {
-        list-style-type: circle !important;
+        list-style-type: none;
     }
 
     #skills {
@@ -210,25 +231,26 @@
 
     .right {
         width: 65%;
+        height: 297mm;
         text-align: start;
         gap: 3rem;
         display: flex;
         flex-direction: column;
-        padding: 10rem 2rem 2rem 2rem;
+        padding: 12% 2rem 2rem 2rem;
         height: auto;
-        justify-content: center;
+        justify-content: start;
     }
 
-    .right #name {
-        font-size: 48px;
-        font-weight: 500;
-        color: grey;
+    #resume-name {
+        font-size: 42px;
+        font-weight: 700;
+        color: gray;
     }
 
     .right .title {
         font-size: 32px;
         font-weight: 400;
-        margin-top: -.6rem;
+        margin-top: .2rem;
     }
 
     .right h2 {
@@ -237,7 +259,7 @@
 
     .right .summary .paragraph {
         font-size: 16px;
-        text-wrap: wrap;
+        word-wrap: break-word;
     }
 
     .right .div {
@@ -245,22 +267,26 @@
         height: max-content;
     }
 
-    .year {
-        width: 30%;
-        font-weight: 700;
+    .right .div h3 {
+        font-weight: 500;
     }
 
-    .institude-name {
+    .right .div h4 {
+        color: #6f7878;
+        margin: 4px 0;
+    }
+
+    .right .div p {
         display: flex;
-        flex-direction: column;
-        gap: .2rem;
-        width: 70%;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
     }
 
-    .institude-name p:first-child {
-        font-weight: 700;
-        font-size: 18px;
+    .right .div p svg {
+        width: 15px;
     }
+
 
     .right .lineTop {
         height: 1.5px !important;
@@ -274,11 +300,6 @@
         margin: 0 auto;
     }
 
-    #resume-name {
-        font-size: 48px;
-        font-weight: 500;
-        color: gray;
-    }
 
     #resume-education {
         display: flex;
@@ -296,7 +317,7 @@
         margin-top: 10px;
     }
 
-    .btns button{
+    .btns button {
         width: 50%;
         padding: 10px;
         border: none;
@@ -307,30 +328,82 @@
         cursor: pointer;
     }
 
-    .btns button:last-child{
+    .btns button:last-child {
         background-color: rgb(0, 162, 255);
 
     }
 
+
+    @media (max-width: 992px) {
+        .section .cv-about {
+            gap: 20px;
+        }
+
+        .form-element .form-label {
+            width: 150px;
+        }
+
+        .section .cv-about .col-2 {
+            width: 45%;
+        }
+
+        .repeat-col .col .form-element {
+            width: 48%;
+
+        }
+
+        .form-control {
+            width: 100%;
+        }
+    }
+
     @media (max-width: 768px) {
-        .main{
+        .main {
             padding: 0;
         }
+
         .resume {
             width: 100%;
             height: auto;
             padding: 1rem;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .flex {
             flex-direction: column;
         }
 
         .left,
         .right {
-            /* width: 100%; */
+            width: 100%;
+            height: auto;
             padding: 1rem;
             margin: 0;
         }
 
-    
+
+        .left {
+            text-align: center;
+        }
+
+        .left h2,
+        .right h2 {
+            font-size: 16px;
+        }
+
+        .left .img {
+            width: 50%;
+        }
+
+        .left img {
+            width: 50%;
+            height: 50%;
+        }
+
+        .left-col-inner ul#resume-skills li {
+            margin: 0 auto;
+        }
 
         .right {
             gap: 1rem;
@@ -340,37 +413,106 @@
             font-size: 36px;
         }
 
+        .left-col-inner.skills{
+            width: auto;
+        }
+
         .right .title {
             font-size: 24px;
         }
 
-        .left h2{
+        .left h2 {
             font-size: 16px;
         }
 
-        .right .summary .paragraph {
+        .right .summary .paragraph,
+        .right .div h3,
+        .right .div h4 {
+            font-size: 18px;
+        }
+
+        .btns button {
             font-size: 14px;
+            font-weight: 900;
+            padding: 8px;
         }
 
-        .year{
-            width: 40%;
-        }
 
-        .institude-name{
-            width: 60%;
-        }
     }
 
-    @media (max-width: 992px) {
 
-        .right {
-            padding: 1rem;
-        }
-
-        .form-control{
+    @media (max-width: 640px) {
+        .section .cv-about .col-2 {
             width: 100%;
         }
+
+        .repeat-col .col .form-element {
+            width: 100%;
+
+        }
     }
+
+
+    /* Styles for PDF generation */
+    body.pdf-download .flex {
+        flex-direction: row;
+    }
+
+    body.pdf-download .left {
+        width: 35%;
+        height: 297mm;
+        padding: 2rem;
+        padding-top: 12%;
+        text-align: start;
+        background-color: rgba(185, 185, 185, 0.5);
+    }
+
+
+    body.pdf-download .left .img {
+        width: 70%;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    body.pdf-download .left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+
+    body.pdf-download .left-col-inner ul#resume-skills li {
+        margin: 0;
+        padding: 0 10px;
+        text-align: center;
+        width: fit-content;
+    }
+
+    body.pdf-download .right {
+        width: 65%;
+        height: 297mm;
+        text-align: start;
+        gap: 3rem;
+        display: flex;
+        flex-direction: column;
+        padding: 6rem 2rem 2rem 2rem;
+        height: auto;
+        justify-content: start;
+    }
+
+    body.pdf-download .right #name {
+        font-size: 48px;
+        font-weight: 500;
+        color: grey;
+    }
+
+    body.pdf-download .right .title {
+        font-size: 32px;
+        font-weight: 400;
+        margin-top: -.6rem;
+    }
+
 
     /* A4 Layout for Print */
     @media print {
@@ -384,63 +526,17 @@
             height: 297mm;
         }
 
-        .main{
+        .main {
             padding: 0;
         }
 
-        .resume{
-            border: 0;
-        }
-
-        .flex {
-            flex-direction: row;
-        }
-
-        .left {
-            width: 35%;
-            height: 100%;
-            padding: 2rem 0 10rem;
-            background-color: rgba(185, 185, 185, 0.5);
-        }
-
-        .left-col-inner {
-            padding-left: 2rem;
-        }
-
-        .right {
-            width: 65%;
-            padding-bottom: 10rem;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .right #name {
-            font-size: 40px;
-        }
-
-        .right .title {
-            font-size: 28px;
-        }
-
-        .right .summary .paragraph {
-            font-size: 14px;
-        }
-    }
-
-    /* A4 Layout for Print */
-    @media print {
-        @page {
-            size: A4;
-            margin: 20mm;
-        }
-
-        body {
-            width: 210mm;
-            height: 297mm;
-        }
-
-        .container{
+        .container {
             display: none;
+        }
+
+        .resume {
+            border: 0;
+            padding: 0;
         }
 
         .flex {
@@ -452,19 +548,16 @@
             height: 297mm;
             padding: 2rem 0;
             background-color: rgba(185, 185, 185, 0.5);
+            justify-content: center;
         }
 
         .left-col-inner {
             padding-left: 2rem;
         }
 
-        .resume{
-            padding: 0;
-        }
-
         .right {
             width: 65%;
-            margin-top: 8rem;
+            padding-bottom: 2rem;
             gap: 2rem;
             justify-content: center;
         }
@@ -481,8 +574,8 @@
         .right .summary .paragraph {
             font-size: 14px;
         }
-        
-        .btns{
+
+        .btns {
             display: none;
         }
     }
